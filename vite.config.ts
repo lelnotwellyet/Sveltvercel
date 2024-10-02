@@ -2,16 +2,9 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [sveltekit()],
-  resolve: {
-    alias: {
-      'string-width': 'string-width/index.js',
+    plugins: [sveltekit()],
+    build: {
+        outDir: 'dist',  // Customize your output directory
+        sourcemap: true,  // Enable source maps if needed
     },
-  },
-  optimizeDeps: {
-    include: ['string-width', 'wide-align'],
-  },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true, // Ensure mixed ESM/CommonJS modules are handled
-    },
+});
